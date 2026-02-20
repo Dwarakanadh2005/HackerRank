@@ -1,1 +1,114 @@
+1) https://www.hackerrank.com/challenges/python-arithmetic-operators/problem?isFullScreen=true
+-----
+a = int(input().strip())
+b = int(input().strip())
+
+print(a + b)
+print(a - b)
+print(a * b)
+
+2) https://www.hackerrank.com/challenges/py-if-else/problem?isFullScreen=true
+-----
+n = int(input().strip())
+
+if n % 2 == 1:
+    print("Weird")
+elif n % 2 == 0 and 2 <= n <= 5:
+    print("Not Weird")
+elif n % 2 == 0 and 6 <= n <= 20:
+    print("Weird")
+else:
+    print("Not Weird")
+
+3)https://www.hackerrank.com/challenges/py-hello-world/problem?isFullScreen=true
+------
+print("Hello, World!")
+
+4)https://www.hackerrank.com/challenges/python-division/problem?isFullScreen=true
+-----
+if __name__ == '__main__':
+    a = int(input())
+    b = int(input())
+    
+    print(a // b)
+    print(a / b)
+
+5)https://www.hackerrank.com/challenges/python-loops/problem?isFullScreen=true
+-----
+n = int(input().strip())
+
+for i in range(n):
+    print(i * i)
+
+6)https://www.hackerrank.com/challenges/write-a-function/problem?isFullScreen=true
+-----
+    
+def is_leap(year):
+    if year % 400 == 0:
+        return True
+    if year % 100 == 0:
+        return False
+    if year % 4 == 0:
+        return True
+    return False
+
+7)https://www.hackerrank.com/challenges/python-print/problem?isFullScreen=true
+-----
+if __name__ == '__main__':
+    n = int(input())
+    for i in range(1, n + 1):
+        print(i, end="")
+
+8)https://www.hackerrank.com/challenges/list-comprehensions/problem?isFullScreen=true
+-----
+# Read input values
+X = int(input())
+Y = int(input())
+Z = int(input())
+N = int(input())
+
+# List comprehension to generate coordinates
+coordinates = [[x, y, z] 
+               for x in range(X + 1) 
+               for y in range(Y + 1) 
+               for z in range(Z + 1) 
+               if (x + y + z) != N]
+
+print(coordinates)
+
+9)https://www.hackerrank.com/challenges/find-second-maximum-number-in-a-list/problem?isFullScreen=true
+-----
+if __name__ == '__main__':
+    n = int(input())
+    scores = list(map(int, input().split()))
+    
+    max_score = max(scores)
+    runner_up = max(score for score in scores if score != max_score)
+    
+    print(runner_up)
+
+10)https://www.hackerrank.com/challenges/nested-list/problem?isFullScreen=true
+-------
+if __name__ == '__main__':
+    students = []
+
+    for _ in range(int(input())):
+        name = input()
+        score = float(input())
+        students.append([name, score])
+
+    scores = sorted(set(student[1] for student in students))
+
+    # Check if second lowest exists
+    if len(scores) > 1:
+        second_lowest = scores[1]
+
+        names = []
+        for student in students:
+            if student[1] == second_lowest:
+                names.append(student[0])
+
+        for name in sorted(names):
+            print(name)
+
 
