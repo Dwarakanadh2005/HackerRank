@@ -111,4 +111,144 @@ if __name__ == '__main__':
         for name in sorted(names):
             print(name)
 
+11)https://www.hackerrank.com/challenges/finding-the-percentage/problem?isFullScreen=true
+_-------
+if __name__ == '__main__':
+    n = int(input())
+    student_marks = {}
+    for _ in range(n):
+        name, *line = input().split()
+        scores = list(map(float, line))
+        student_marks[name] = scores
+    query_name = input()
+    scores = student_marks[query_name]
+    avg = sum(scores)/len(scores)
+    print(f"{avg:.2f}")
+
+12)https://www.hackerrank.com/challenges/python-lists/problem?isFullScreen=true
+-------
+if __name__ == '__main__':
+    N = int(input())  # Number of commands
+    lst = []          # Initialize empty list
+
+    for _ in range(N):
+        cmd_input = input().split()  # Read command and arguments
+        command = cmd_input[0]       # First word is the command
+
+        # Use Python's getattr to call the list method dynamically when possible
+        if command == "insert":
+            lst.insert(int(cmd_input[1]), int(cmd_input[2]))
+        elif command == "print":
+            print(lst)
+        elif command == "remove":
+            lst.remove(int(cmd_input[1]))
+        elif command == "append":
+            lst.append(int(cmd_input[1]))
+        elif command == "sort":
+            lst.sort()
+        elif command == "pop":
+            lst.pop()
+        elif command == "reverse":
+            lst.reverse()
+
+13)https://www.hackerrank.com/challenges/python-string-split-and-join/problem?isFullScreen=true
+------
+def split_and_join(line):
+    # Split the string on spaces
+    words = line.split(" ")
+    # Join the words using a hyphen
+    return "-".join(words)
+
+14)https://www.hackerrank.com/challenges/whats-your-name/problem?isFullScreen=true
+------
+
+def print_full_name(first, last):
+    # Write your code here
+    # Use f-string to format the output
+    print(f"Hello {first} {last}! You just delved into python.")
+
+15)https://www.hackerrank.com/challenges/python-mutations/problem?isFullScreen=true
+-------
+def mutate_string(string, position, character):
+    return string[:position] + character + string[position + 1:]
+
+16)https://www.hackerrank.com/challenges/find-a-string/problem?isFullScreen=true
+-------
+def count_substring(string, sub_string):
+    count = 0
+    sub_len = len(sub_string)
+    # Loop through the string
+    for i in range(len(string) - sub_len + 1):
+        if string[i:i + sub_len] == sub_string:
+            count += 1
+    return count
+
+17)https://www.hackerrank.com/challenges/string-validators/problem?isFullScreen=true
+-------
+if __name__ == '__main__':
+    s = input()
+    # Check if any character is alphanumeric
+print(any(c.isalnum() for c in s))
+
+# Check if any character is alphabetical
+print(any(c.isalpha() for c in s))
+
+# Check if any character is a digit
+print(any(c.isdigit() for c in s))
+
+# Check if any character is lowercase
+print(any(c.islower() for c in s))
+
+# Check if any character is uppercase
+print(any(c.isupper() for c in s))
+
+18)https://www.hackerrank.com/challenges/text-alignment/problem?isFullScreen=true
+------
+thickness = int(input()) # This must be an odd number
+c = 'H'
+
+# Top Cone
+for i in range(thickness):
+    print((c*i).rjust(thickness-1) + c + (c*i).ljust(thickness-1))
+
+# Top Pillars
+for i in range(thickness+1):
+    print((c*thickness).center(thickness*2) + (c*thickness).center(thickness*6))
+
+# Middle Belt
+for i in range((thickness+1)//2):
+    print((c*thickness*5).center(thickness*6))    
+
+# Bottom Pillars
+for i in range(thickness+1):
+    print((c*thickness).center(thickness*2) + (c*thickness).center(thickness*6))    
+
+# Bottom Cone
+for i in range(thickness):
+    print(((c*(thickness-i-1)).rjust(thickness) + c + (c*(thickness-i-1)).ljust(thickness)).rjust(thickness*6))
+
+19)https://www.hackerrank.com/challenges/text-wrap/problem?isFullScreen=true
+-------
+def wrap(string, max_width):
+    return textwrap.fill(string, max_width)
+
+20)https://www.hackerrank.com/challenges/designer-door-mat/problem?isFullScreen=true
+-------
+# N is height, M is width
+N, M = map(int, input().split())
+
+# 1. Top Half
+for i in range(1, N, 2):
+    pattern = (".|." * i)
+    print(pattern.center(M, "-"))
+
+# 2. Middle Line (WELCOME)
+print("WELCOME".center(M, "-"))
+
+# 3. Bottom Half (Reverse of Top Half)
+for i in range(N-2, -1, -2):
+    pattern = (".|." * i)
+    print(pattern.center(M, "-"))
+
+
 
