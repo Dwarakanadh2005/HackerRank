@@ -57,8 +57,3 @@ UNION ALL
  ORDER BY LENGTH(CITY) DESC, CITY ASC
  LIMIT 1);
 
-6)https://www.hackerrank.com/challenges/japanese-cities-name/problem?isFullScreen=true
-------
-SELECT NAME FROM CITY 
-WHERE COUNTRYCODE = 'JPN';
-
