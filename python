@@ -250,5 +250,96 @@ for i in range(N-2, -1, -2):
     pattern = (".|." * i)
     print(pattern.center(M, "-"))
 
+21)https://www.hackerrank.com/challenges/python-string-formatting/problem?isFullScreen=true
+--------
+def print_formatted(number):
+    # Calculate the width of the binary representation of 'number'
+    # bin(number) returns '0b10001', so we slice from index 2
+    width = len(bin(number)[2:])
+    
+    for i in range(1, number + 1):
+        # Generate the formatted strings
+        dec = str(i)
+        octal = oct(i)[2:]
+        hex_val = hex(i)[2:].upper()
+        binary = bin(i)[2:]
+        
+        # Print each value right-justified to the calculated width
+        print(f"{dec.rjust(width)} {octal.rjust(width)} {hex_val.rjust(width)} {binary.rjust(width)}")
+
+22)https://www.hackerrank.com/challenges/alphabet-rangoli/problem?isFullScreen=true
+--------
+import string
+
+def print_rangoli(size):
+    # Get all lowercase letters
+    alpha = string.ascii_lowercase
+    
+    lines = []
+    for i in range(size):
+        # Slice the characters needed for the current row
+        # From character at index 'size-1' down to 'i'
+        s = "-".join(alpha[size-1:i:-1] + alpha[i:size])
+        
+        # Center the string within the full width of the rangoli
+        # The width formula is (size * 4) - 3
+        lines.append(s.center(4 * size - 3, "-"))
+    
+    # Print the top half + middle + bottom half (reversed top half)
+    # lines[::-1] provides the top half, lines[0] is the middle, etc.
+    print('\n'.join(lines[::-1] + lines[1:]))
+
+23)https://www.hackerrank.com/challenges/capitalize/problem?isFullScreen=true
+---------
+def solve(s):
+    # Split the string by spaces
+    # We use .split(' ') instead of .split() to preserve multiple spaces
+    words = s.split(' ')
+    
+    # Capitalize the first letter of each word
+    capitalized_words = [word.capitalize() for word in words]
+    
+    # Join them back with a single space
+    return ' '.join(capitalized_words)
+
+24)https://www.hackerrank.com/challenges/the-minion-game/problem?isFullScreen=true
+--------
+def minion_game(string):
+    vowels = 'AEIOU'
+    stuart_score = 0
+    kevin_score = 0
+    length = len(string)
+
+    for i in range(length):
+        # Calculate how many substrings start at this position
+        score = length - i
+        
+        if string[i] in vowels:
+            kevin_score += score
+        else:
+            stuart_score += score
+
+    if stuart_score > kevin_score:
+        print(f"Stuart {stuart_score}")
+    elif kevin_score > stuart_score:
+        print(f"Kevin {kevin_score}")
+    else:
+        print("Draw")
+
+25)https://www.hackerrank.com/challenges/merge-the-tools/problem?isFullScreen=true
+--------
+def merge_the_tools(string, k):
+    # Calculate how many segments we will have
+    for i in range(0, len(string), k):
+        # 1. Get the substring (segment) of length k
+        t = string[i : i + k]
+        
+        # 2. Remove duplicates while maintaining order
+        # Using a dictionary key's uniqueness property (Python 3.7+)
+        u = "".join(dict.fromkeys(t))
+        
+        print(u)
+
+
 
 
