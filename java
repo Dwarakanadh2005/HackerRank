@@ -475,3 +475,179 @@ public class Solution {
     }
 }
 
+21)https://www.hackerrank.com/challenges/java-biginteger/problem?isFullScreen=true
+-------
+  import java.util.*;
+import java.math.BigInteger;
+
+public class Solution {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        // Read the two huge numbers as strings and convert to BigInteger
+        BigInteger a = new BigInteger(scanner.nextLine());
+        BigInteger b = new BigInteger(scanner.nextLine());
+
+        // Addition
+        BigInteger sum = a.add(b);
+
+        // Multiplication
+        BigInteger product = a.multiply(b);
+
+        // Print results
+        System.out.println(sum);
+        System.out.println(product);
+
+        scanner.close();
+    }
+}
+
+22)https://www.hackerrank.com/challenges/java-2d-array/problem?isFullScreen=true
+--------
+  import java.util.Scanner;
+
+public class Solution {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int[][] arr = new int[6][6];
+
+        // Read the 6x6 array
+        for (int i = 0; i < 6; i++) {
+            for (int j = 0; j < 6; j++) {
+                arr[i][j] = sc.nextInt();
+            }
+        }
+
+        int maxSum = Integer.MIN_VALUE; // initialize to smallest possible integer
+
+        // Iterate over all possible hourglass starting points
+        for (int i = 0; i <= 3; i++) {
+            for (int j = 0; j <= 3; j++) {
+                int currentSum = 
+                    arr[i][j] + arr[i][j+1] + arr[i][j+2] + // top row
+                    arr[i+1][j+1] +                        // middle
+                    arr[i+2][j] + arr[i+2][j+1] + arr[i+2][j+2]; // bottom row
+
+                if (currentSum > maxSum) {
+                    maxSum = currentSum;
+                }
+            }
+        }
+
+        System.out.println(maxSum);
+        sc.close();
+    }
+}
+
+23)https://www.hackerrank.com/challenges/java-negative-subarray/problem?isFullScreen=true
+----------
+  import java.util.Scanner;
+
+public class Solution {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        
+        int n = sc.nextInt();           // length of the array
+        int[] arr = new int[n];
+        
+        for (int i = 0; i < n; i++) {
+            arr[i] = sc.nextInt();
+        }
+        
+        int count = 0;
+        
+        // Generate all subarrays
+        for (int i = 0; i < n; i++) {
+            int sum = 0;
+            for (int j = i; j < n; j++) {
+                sum += arr[j];   // add current element to sum
+                if (sum < 0) {
+                    count++;     // increment if negative
+                }
+            }
+        }
+        
+        System.out.println(count);
+        sc.close();
+    }
+}
+
+24)https://www.hackerrank.com/challenges/java-arraylist/problem?isFullScreen=true
+--------
+  import java.util.*;
+
+public class Solution {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        
+        int n = sc.nextInt(); // number of lines
+        ArrayList<ArrayList<Integer>> lines = new ArrayList<>();
+        
+        // Read each line
+        for (int i = 0; i < n; i++) {
+            int d = sc.nextInt(); // number of integers in this line
+            ArrayList<Integer> line = new ArrayList<>();
+            for (int j = 0; j < d; j++) {
+                line.add(sc.nextInt());
+            }
+            lines.add(line);
+        }
+        
+        int q = sc.nextInt(); // number of queries
+        
+        // Answer each query
+        for (int i = 0; i < q; i++) {
+            int x = sc.nextInt(); // line number
+            int y = sc.nextInt(); // position in line
+            
+            // Check bounds
+            if (x > 0 && x <= lines.size()) {
+                ArrayList<Integer> line = lines.get(x - 1);
+                if (y > 0 && y <= line.size()) {
+                    System.out.println(line.get(y - 1));
+                } else {
+                    System.out.println("ERROR!");
+                }
+            } else {
+                System.out.println("ERROR!");
+            }
+        }
+        
+        sc.close();
+    }
+}
+
+25)https://www.hackerrank.com/challenges/phone-book/problem?isFullScreen=true
+---------
+  import java.util.*;
+import java.io.*;
+
+public class Solution {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        sc.nextLine(); // consume the newline after integer input
+
+        // Store phone book entries
+        Map<String, String> phoneBook = new HashMap<>();
+        for (int i = 0; i < n; i++) {
+            String name = sc.nextLine();
+            String number = sc.nextLine();
+            phoneBook.put(name, number);
+        }
+
+        // Process queries until EOF
+        while (sc.hasNextLine()) {
+            String query = sc.nextLine();
+            if (phoneBook.containsKey(query)) {
+                System.out.println(query + "=" + phoneBook.get(query));
+            } else {
+                System.out.println("Not found");
+            }
+        }
+
+        sc.close();
+    }
+}
+
+
