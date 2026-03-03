@@ -270,4 +270,127 @@ int main() {
     return 0;
 }
 
+11)https://www.hackerrank.com/challenges/1d-arrays-in-c/problem?isFullScreen=true
+--------
+ #include <stdio.h>
+#include <stdlib.h>
+
+int main() {
+    int n;
+    scanf("%d", &n);
+
+    int *arr = (int *)malloc(n * sizeof(int));
+    if (arr == NULL) {
+        return 1; // memory allocation failed
+    }
+
+    int sum = 0;
+    for (int i = 0; i < n; i++) {
+        scanf("%d", &arr[i]);
+        sum += arr[i];
+    }
+
+    printf("%d", sum);
+
+    free(arr);
+    return 0;
+}
+
+12)https://www.hackerrank.com/challenges/reverse-array-c/problem?isFullScreen=true
+-------
+ #include <stdio.h>
+
+int main() {
+    int n;
+    scanf("%d", &n);
+
+    int arr[n];
+    for (int i = 0; i < n; i++) {
+        scanf("%d", &arr[i]);
+    }
+
+    // Reverse the array
+    for (int i = 0; i < n / 2; i++) {
+        int temp = arr[i];
+        arr[i] = arr[n - i - 1];
+        arr[n - i - 1] = temp;
+    }
+
+    // Print reversed array
+    for (int i = 0; i < n; i++) {
+        printf("%d ", arr[i]);
+    }
+
+    return 0;
+}
+
+13)https://www.hackerrank.com/challenges/printing-tokens-/problem?isFullScreen=true
+-------
+ #include <stdio.h>
+
+int main() {
+    char str[1000];
+
+    // Read the entire line (including spaces)
+    fgets(str, sizeof(str), stdin);
+
+    // Print each word on a new line
+    for (int i = 0; str[i] != '\0'; i++) {
+        if (str[i] == ' ') {
+            printf("\n");
+        } else if (str[i] != '\n') {
+            printf("%c", str[i]);
+        }
+    }
+
+    return 0;
+}
+
+14)https://www.hackerrank.com/challenges/frequency-of-digits-1/problem?isFullScreen=true
+--------
+ #include <stdio.h>
+
+int main() {
+    char str[1000];
+    int freq[10] = {0};
+
+    scanf("%s", str);
+
+    for (int i = 0; str[i] != '\0'; i++) {
+        if (str[i] >= '0' && str[i] <= '9') {
+            freq[str[i] - '0']++;
+        }
+    }
+
+    for (int i = 0; i < 10; i++) {
+        printf("%d ", freq[i]);
+    }
+
+    return 0;
+}
+
+15)https://www.hackerrank.com/challenges/recursion-in-c/problem?isFullScreen=true
+--------
+ #include <stdio.h>
+
+int series(int n, int a, int b, int c) {
+    if (n == 1) return a;
+    if (n == 2) return b;
+    if (n == 3) return c;
+
+    return series(n - 1, a, b, c)
+         + series(n - 2, a, b, c)
+         + series(n - 3, a, b, c);
+}
+
+int main() {
+    int n, a, b, c;
+    scanf("%d", &n);
+    scanf("%d %d %d", &a, &b, &c);
+
+    printf("%d", series(n, a, b, c));
+    return 0;
+}
+
+
 
