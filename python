@@ -340,6 +340,104 @@ def merge_the_tools(string, k):
         
         print(u)
 
+26)https://www.hackerrank.com/challenges/itertools-product/problem?isFullScreen=true
+-------
+from itertools import product
+
+# Read input, split by space, and convert each element to an integer
+A = list(map(int, input().split()))
+B = list(map(int, input().split()))
+
+# Compute the Cartesian product
+result = list(product(A, B))
+
+# Print the tuples separated by spaces
+# The * operator unpacks the list into individual arguments for print
+print(*result)
+
+27)https://www.hackerrank.com/challenges/collections-counter/problem?isFullScreen=true
+------
+from collections import Counter
+
+# Number of shoes
+n = int(input())
+
+# Shoe sizes available in the shop
+shoe_sizes = Counter(map(int, input().split()))
+
+# Number of customers
+customers = int(input())
+
+total_earned = 0
+
+# Process each customer
+for _ in range(customers):
+    size, price = map(int, input().split())
+    if shoe_sizes[size] > 0:
+        total_earned += price
+        shoe_sizes[size] -= 1
+
+# Output total money earned
+print(total_earned)
+
+28)https://www.hackerrank.com/challenges/itertools-permutations/problem?isFullScreen=true
+--------
+from itertools import permutations
+
+# Read the input and split into the string and the integer r
+s, r = input().split()
+r = int(r)
+
+# Sort the string characters alphabetically first to ensure 
+# the permutations are generated in lexicographic order.
+sorted_s = sorted(s)
+
+# Generate permutations of size r
+res = list(permutations(sorted_s, r))
+
+# Join the characters in each tuple and print each on a new line
+for p in res:
+    print("".join(p))
+
+29)https://www.hackerrank.com/challenges/polar-coordinates/problem?isFullScreen=true
+-----------
+import cmath
+
+# Read input and convert to complex number
+z = complex(input().strip())
+
+# Modulus (r) and phase angle (phi)
+r = abs(z)
+phi = cmath.phase(z)
+
+# Print results
+print(r)
+print(phi)
+
+30)https://www.hackerrank.com/challenges/defaultdict-tutorial/problem?isFullScreen=true
+---------
+from collections import defaultdict
+
+# Read input sizes
+n, m = map(int, input().split())
+
+# Create defaultdict to store positions
+group_a = defaultdict(list)
+
+# Read words for group A
+for i in range(1, n + 1):
+    word = input().strip()
+    group_a[word].append(i)
+
+# Read words for group B and output results
+for _ in range(m):
+    word = input().strip()
+    if word in group_a:
+        print(" ".join(map(str, group_a[word])))
+    else:
+        print(-1)
+
+
 
 
 
