@@ -87,4 +87,58 @@ SELECT DISTINCT CITY
 FROM STATION
 WHERE CITY REGEXP '[^aeiou]$';
 
+16)https://www.hackerrank.com/challenges/weather-observation-station-11/problem?isFullScreen=true
+-------
+SELECT DISTINCT CITY
+FROM STATION
+WHERE CITY REGEXP '^[^aeiou]' 
+   OR CITY REGEXP '[^aeiou]$';
+
+17)https://www.hackerrank.com/challenges/weather-observation-station-12/problem?isFullScreen=true
+--------
+SELECT DISTINCT CITY
+FROM STATION
+WHERE LOWER(SUBSTR(CITY, 1, 1)) NOT IN ('a', 'e', 'i', 'o', 'u')
+  AND LOWER(SUBSTR(CITY, -1, 1)) NOT IN ('a', 'e', 'i', 'o', 'u');
+
+18)https://www.hackerrank.com/challenges/more-than-75-marks/problem?isFullScreen=true
+---------
+SELECT Name
+FROM STUDENTS
+WHERE Marks > 75
+ORDER BY RIGHT(Name, 3), ID;
+
+19)https://www.hackerrank.com/challenges/name-of-employees/problem?isFullScreen=true
+---------
+SELECT name
+FROM Employee
+ORDER BY name;
+
+20)https://www.hackerrank.com/challenges/salary-of-employees/problem?isFullScreen=true
+--------
+SELECT name
+FROM Employee
+WHERE salary > 2000
+  AND months < 10
+ORDER BY employee_id;
+
+21)https://www.hackerrank.com/challenges/occupations/problem?isFullScreen=true
+--------
+WITH Ordered AS (
+    SELECT 
+        Name,
+        Occupation,
+        ROW_NUMBER() OVER (PARTITION BY Occupation ORDER BY Name) AS rn
+    FROM OCCUPATIONS
+)
+SELECT
+    MAX(CASE WHEN Occupation = 'Doctor' THEN Name END) AS Doctor,
+    MAX(CASE WHEN Occupation = 'Professor' THEN Name END) AS Professor,
+    MAX(CASE WHEN Occupation = 'Singer' THEN Name END) AS Singer,
+    MAX(CASE WHEN Occupation = 'Actor' THEN Name END) AS Actor
+FROM Ordered
+GROUP BY rn
+ORDER BY rn;
+
+
 
