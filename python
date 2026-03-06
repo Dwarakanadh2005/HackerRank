@@ -437,6 +437,15 @@ for _ in range(m):
     else:
         print(-1)
 
+31)https://www.hackerrank.com/challenges/exceptions/problem?isFullScreen=true
+for _ in range(int(input())):
+    a, b = input().split()
+    try:
+        print(int(a) // int(b))
+    except (ZeroDivisionError, ValueError) as e:
+        print("Error Code:", e)
+
+
 
 
 
