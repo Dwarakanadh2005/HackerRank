@@ -438,12 +438,85 @@ for _ in range(m):
         print(-1)
 
 31)https://www.hackerrank.com/challenges/exceptions/problem?isFullScreen=true
+------------
 for _ in range(int(input())):
     a, b = input().split()
     try:
         print(int(a) // int(b))
     except (ZeroDivisionError, ValueError) as e:
         print("Error Code:", e)
+
+
+32)https://www.hackerrank.com/challenges/py-collections-namedtuple/problem?isFullScreen=true
+---------
+from collections import namedtuple
+
+n = int(input())
+columns = input().split()
+Student = namedtuple('Student', columns)
+
+total = 0
+for _ in range(n):
+    total += int(Student(*input().split()).MARKS)
+
+print(f"{total / n:.2f}")
+
+33)https://www.hackerrank.com/challenges/no-idea/problem?isFullScreen=true
+-------
+# Read n and m
+n, m = map(int, input().split())
+
+# Read the array
+arr = list(map(int, input().split()))
+
+# Read sets A and B
+A = set(map(int, input().split()))
+B = set(map(int, input().split()))
+
+# Initialize happiness
+happiness = 0
+
+# Calculate happiness
+for x in arr:
+    if x in A:
+        happiness += 1
+    elif x in B:
+        happiness -= 1
+
+print(happiness)
+
+34)https://www.hackerrank.com/challenges/py-collections-ordereddict/problem?isFullScreen=true
+---------
+from collections import OrderedDict
+
+n = int(input())
+items = OrderedDict()
+
+for _ in range(n):
+    name, price = input().rsplit(' ', 1)
+    price = int(price)
+    items[name] = items.get(name, 0) + price
+
+for name, total in items.items():
+    print(name, total)
+
+35)https://www.hackerrank.com/challenges/symmetric-difference/problem?isFullScreen=true
+---------
+# Read input
+m = int(input())
+a = set(map(int, input().split()))
+
+n = int(input())
+b = set(map(int, input().split()))
+
+# Compute symmetric difference
+sym_diff = a.symmetric_difference(b)
+
+# Print in ascending order
+for num in sorted(sym_diff):
+    print(num)
+
+
 
 
 
