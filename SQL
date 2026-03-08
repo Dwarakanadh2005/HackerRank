@@ -225,6 +225,69 @@ SELECT CEIL(
 ) AS error_amount
 FROM EMPLOYEES;
 
+31)https://www.hackerrank.com/challenges/earnings-of-employees/problem?isFullScreen=true
+----------
+SELECT 
+    MAX(salary * months) AS max_earnings,
+    COUNT(*) AS employee_count
+FROM Employee
+WHERE (salary * months) = (
+    SELECT MAX(salary * months) 
+    FROM Employee
+);
+
+32)https://www.hackerrank.com/challenges/weather-observation-station-2/problem?isFullScreen=true
+-----------
+SELECT ROUND(SUM(LAT_N), 2), ROUND(SUM(LONG_W), 2)
+FROM STATION;
+
+33)https://www.hackerrank.com/challenges/weather-observation-station-13/problem?isFullScreen=true
+-------
+SELECT TRUNCATE(SUM(LAT_N), 4)
+FROM STATION
+WHERE LAT_N > 38.7880 AND LAT_N < 137.2345;
+
+34)https://www.hackerrank.com/challenges/weather-observation-station-14/problem?isFullScreen=true
+-------
+SELECT TRUNCATE(MAX(LAT_N), 4)
+FROM STATION
+WHERE LAT_N < 137.2345;
+
+35)https://www.hackerrank.com/challenges/weather-observation-station-15/problem?isFullScreen=true
+--------
+SELECT ROUND(LONG_W, 4)
+FROM STATION
+WHERE LAT_N < 137.2345
+ORDER BY LAT_N DESC
+LIMIT 1;
+
+36)https://www.hackerrank.com/challenges/weather-observation-station-16/problem?isFullScreen=true
+-------
+SELECT ROUND(MIN(LAT_N), 4)
+FROM STATION
+WHERE LAT_N > 38.7780;
+
+37)https://www.hackerrank.com/challenges/weather-observation-station-17/problem?isFullScreen=true
+--------
+SELECT ROUND(LONG_W, 4)
+FROM STATION
+WHERE LAT_N > 38.7780
+ORDER BY LAT_N ASC
+LIMIT 1;
+
+38)https://www.hackerrank.com/challenges/weather-observation-station-18/problem?isFullScreen=true
+---------
+SELECT ROUND((MAX(LAT_N) - MIN(LAT_N)) + (MAX(LONG_W) - MIN(LONG_W)), 4)
+FROM STATION;
+
+39)https://www.hackerrank.com/challenges/weather-observation-station-19/problem?isFullScreen=true
+SELECT ROUND(
+    SQRT(
+        POWER(MAX(LAT_N) - MIN(LAT_N), 2) + 
+        POWER(MAX(LONG_W) - MIN(LONG_W), 2)
+    ), 4)
+FROM STATION;
+
 
 
 
