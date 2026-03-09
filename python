@@ -570,6 +570,117 @@ res = combinations_with_replacement(sorted_s, r)
 for combo in res:
     print("".join(combo))
 
+39)https://www.hackerrank.com/challenges/word-order/problem?isFullScreen=true
+--------
+from collections import OrderedDict
+
+n = int(input())
+words = OrderedDict()
+
+for _ in range(n):
+    word = input().strip()
+    words[word] = words.get(word, 0) + 1
+
+print(len(words))
+print(*words.values())
+
+40)https://www.hackerrank.com/challenges/py-collections-deque/problem?isFullScreen=true
+-------
+from collections import deque
+
+d = deque()
+for _ in range(int(input())):
+    cmd = input().split()
+    if cmd[0] == "append":
+        d.append(cmd[1])
+    elif cmd[0] == "appendleft":
+        d.appendleft(cmd[1])
+    elif cmd[0] == "pop":
+        d.pop()
+    elif cmd[0] == "popleft":
+        d.popleft()
+
+print(*d)
+
+41)https://www.hackerrank.com/challenges/compress-the-string/problem?isFullScreen=true
+--------
+from itertools import groupby
+
+# Read the input string
+S = input().strip()
+
+# Use groupby to find consecutive identical characters
+# k = the character (key)
+# g = the group iterator containing the occurrences
+result = []
+for k, g in groupby(S):
+    # Convert group to a list to find its length
+    count = len(list(g))
+    # Format as (count, character) as integers
+    result.append((count, int(k)))
+
+# Print the result tuples separated by spaces
+print(*result)
+
+42)https://www.hackerrank.com/challenges/most-commons/problem?isFullScreen=true
+---------
+from collections import Counter
+
+# Read input string
+s = input().strip()
+
+# Count the frequency of each character
+freq = Counter(s)
+
+# Sort by: descending frequency, then alphabetically
+sorted_chars = sorted(freq.items(), key=lambda x: (-x[1], x[0]))
+
+# Print the top three
+for char, count in sorted_chars[:3]:
+    print(char, count)
+
+43)https://www.hackerrank.com/challenges/py-set-union/problem?isFullScreen=true
+--------
+# Read input
+n_english = int(input())
+english = set(map(int, input().split()))
+n_french = int(input())
+french = set(map(int, input().split()))
+
+# Total students with at least one subscription
+total = english.union(french)  # or english | french
+
+# Output the result
+print(len(total))
+
+44)https://www.hackerrank.com/challenges/piling-up/problem?isFullScreen=true
+-------
+for _ in range(int(input())):
+    n = int(input())
+    cubes = list(map(int, input().split()))
+    
+    top = float('inf')
+    left, right = 0, n - 1
+    possible = True
+    
+    while left <= right:
+        if cubes[left] >= cubes[right] and cubes[left] <= top:
+            top = cubes[left]
+            left += 1
+        elif cubes[right] > cubes[left] and cubes[right] <= top:
+            top = cubes[right]
+            right -= 1
+        elif cubes[left] <= top:
+            top = cubes[left]
+            left += 1
+        elif cubes[right] <= top:
+            top = cubes[right]
+            right -= 1
+        else:
+            possible = False
+            break
+    
+    print("Yes" if possible else "No")
 
 
 
