@@ -682,6 +682,45 @@ for _ in range(int(input())):
     
     print("Yes" if possible else "No")
 
+45)https://www.hackerrank.com/challenges/triangle-quest-2/problem?isFullScreen=true
+-----
+ = int(input())
+for i in range(1, n+1): print((10**i // 9)**2)
+
+46)https://www.hackerrank.com/challenges/py-set-intersection-operation/problem?isFullScreen=true
+-----
+# Read input
+n_english = int(input())
+english = set(map(int, input().split()))
+
+n_french = int(input())
+french = set(map(int, input().split()))
+
+# Find students who subscribed to both newspapers
+both = english & french  # or english.intersection(french)
+
+# Print the number of students
+print(len(both))
+
+47)https://www.hackerrank.com/challenges/python-mod-divmod/problem?isFullScreen=true
+-------
+a = int(input())
+b = int(input())
+
+print(a // b)
+print(a % b)
+print(divmod(a, b))
+
+48)https://www.hackerrank.com/challenges/python-power-mod-power/problem?isFullScreen=true
+--------
+a = int(input())
+b = int(input())
+m = int(input())
+
+print(pow(a, b))
+print(pow(a, b, m))
+
+
 
 
 
